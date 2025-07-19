@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Medecin, Traitement, Consultation, Message, Etablissement, StockPharmacie, EvaluationMedecin, Campagne, Donation
+from .models import User, Medecin, Traitement, Consultation, Message, Etablissement, StockPharmacie, EvaluationMedecin, Campagne, Donation, Ordonnance
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,3 +50,11 @@ class DonationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Donation
         fields = ['id', 'utilisateur', 'campagne', 'operateur', 'numero_telephone', 'montant']
+
+from .models import Ordonnance
+
+class OrdonnanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ordonnance
+        fields = ['id', 'image', 'medicaments_extraits', 'date_upload']
+        read_only_fields = ['medicaments_extraits', 'date_upload'] 

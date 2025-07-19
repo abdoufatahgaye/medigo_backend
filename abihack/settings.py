@@ -27,6 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import os
+
+# ... autres configurations
+
+
+# Pour charger votre clé API Gemini de .env
+import environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+GEMINI_API_KEY = env('GEMINI_API_KEY')
+
 
 # Application definition
 

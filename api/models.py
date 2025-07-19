@@ -95,3 +95,12 @@ class Donation(models.Model):
 
     def __str__(self):
         return f"{self.utilisateur} - {self.montant}"
+
+
+class Ordonnance(models.Model):
+    image = models.ImageField(upload_to='ordonnances/')
+    medicaments_extraits = models.TextField(blank=True, null=True)
+    date_upload = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Ordonnance #{self.id}"
